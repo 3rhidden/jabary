@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <style>
+        .header{
+    background-color: rgb(59, 27, 40);
+    width: 80%;
+    height: 50px;
+    margin:auto;
+    
+    
+}
+.header>ul>li{
+    list-style:none; 
+    background-color:rgb(199, 44, 70) ;
+    padding:7px;
+    margin:10px;
+    border-radius: 4px;
+    color:aliceblue;
+    float: right;
+    
+}
+.header>ul>li:hover{
+    background-color:rgb(226, 73, 93);
+    transition-duration: .5s;
+    
+}
+.form-1{
+    display: flex;
+    justify-content: center;
+    
+}
+a{
+    text-decoration: none;
+}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <ul>
+            <li id="home"><a href="index.html">خانه</a></li>
+            <li id="category"><a href="categories.html">کتگوری ها</a></li>
+            <li id="else-items"><a href="items.html">سایر آگهی ها</a></li>
+            <li id="contact"><a href="contact.html">ارتبط با ما</a></li>
+            <li id="sign-up"><a href="signup.html">ثبت نام</a></li>
+            <li id="sign-in"><a href="login.html">ورود به سایت</a></li>
+        </ul>
+    </div><br><br><br><br>
+    <div class="form-1">
+        <form action="felan.php">
+           <input type="text" placeholder="..اینجا وارد کنید"> :نام و نام خانوادگی  
+           <br><br>
+           <input type="text" placeholder=" sohrab nazeri_33"> :نام کاربری
+           <br><br>
+           <input type="email" placeholder="microsoft@gmail.com">   :ایمیل 
+           <br><br>
+           <input type="password" placeholder="!  حاوی کاراکتر و رقم">  :گذرواژه
+           <br><br><br><br><br>
+           
+           <input name="jensiat"type="radio" value="mard"> مونث
+           <input name="jensiat"type="radio" value="zan"> مذکر
+           <br><br>
+           <button type="submit">Sign up!</button>
+        </form>
+    </div>
+</body>
+</html>
