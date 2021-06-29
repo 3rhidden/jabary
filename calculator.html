@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <style>
+.header{
+    background-color: rgb(59, 27, 40);
+    width: 80%;
+    height: 50px;
+    margin:auto;
+    
+    
+}
+.header>ul>li{
+    list-style:none; 
+    background-color:rgb(199, 44, 70) ;
+    padding:7px;
+    margin:10px;
+    border-radius: 4px;
+    color:aliceblue;
+    float: right;
+    
+}
+.header>ul>li:hover{
+    background-color:rgb(226, 73, 93);
+    transition-duration: .5s;
+    
+}
+input
+{
+    width: 253px;
+}
+button
+{
+    width: 60px;
+    height: 35px;
+    background-color: #FAFAFA;
+    border: none;
+}
+table
+{
+    background-color: #F0F0F0;
+}
+
+label#outPut
+{
+    display: block;
+    background-color: #F0F0F0;
+    height: 100px;
+    width: 258px;
+    margin-bottom: -10px;
+}
+.c-father{
+    display: flex;
+    justify-content: center;
+}
+    </style>
+</head>
+<body>
+    <div class="header">
+            <ul>
+                <li id="home"><a href="index.html">خانه</a></li>
+                <li id="category"><a href="categories.html">کتگوری ها</a></li>
+                <li id="else-items"><a href="items.html">سایر آگهی ها</a></li>
+                <li id="contact"><a href="contact.html">ارتبط با ما</a></li>
+                <li id="sign-up"><a href="signup.html">ثبت نام</a></li>
+                <li id="sign-in"><a href="login.html">ورود به سایت</a></li>
+                <li id="calculator"><a href="calculator.html">ماشین حساب</a></li>
+            </ul>
+        </div><br><br><br>
+    <div class="c-father">
+        <div class="c">
+            <label for="" id="outPut"> </label> 
+            <table>
+                 <tr>  
+                         <input type="text" id="outText" value="">
+
+                     </tr>
+                <tr>
+                 <td> <button onclick="keysubmit('7');" value="7" id="7">7</button></td>
+                 <td> <button onclick="keysubmit('8');"  value="8" id="8">8</button></td>
+                 <td> <button onclick="keysubmit('9');" value="9" id="9">9</button></td>
+                 <td> <button onclick="keysubmit('*');"value="*" id="*">*</button></td>
+                </tr>
+                <tr>
+                     <td> <button onclick="keysubmit('4');" value="4" id="4">4</button></td>
+                     <td> <button onclick="keysubmit('5');" value="5" id="5">5</button></td>
+                     <td> <button onclick="keysubmit('6');" value="6" id="6">6</button></td>
+                     <td> <button onclick="keysubmit('-');" value="-" id="-">-</button></td>
+                </tr>
+            
+                <tr>
+                     <td> <button onclick="keysubmit('1');" value="1" id="1">1</button></td>
+                     <td> <button onclick="keysubmit('2');" value="2" id="2">2</button></td>
+                     <td> <button onclick="keysubmit('3');" value="3" id="3">3</button></td>
+                     <td> <button onclick="keysubmit('+');" value="+" id="+">+</button></td>
+                </tr>
+                <tr>
+                     <td> <button onclick="keysubmit('±');" value="±" id="±">±</button></td>
+                     <td> <button onclick="keysubmit('0');" value="0" id="0">0</button></td>
+                     <td> <button onclick="keysubmit('/');" value="/" id="/">/</button></td>
+                     <td> <button onclick="equal();" value="=" id="=">=</button></td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+</b     ody>
+</html>
+
+<script>
+var sw = false,sw2 = false;
+var a, b;
+var n = ' ';
+
+function keysubmit(key)
+{
+    
+    if (document.getElementById("outText").value == "0") document.getElementById("outText").value="";
+
+    var input = Number(key);
+ 
+    if(input>=0 || input<=9) // is number
+    {
+    document.getElementById("outText").value += input;
+    }
+    else //is not number
+    {        
+        if (sw2 == true)
+            {
+                document.getElementById("outPut").innerHTML = "  ";                
+            }
+            if (sw == true)
+            {
+                switch (n)
+                {
+                    case '+':
+                        a += Number(document.getElementById("outText").value);                     
+                        break;
+                    case '-':  
+                        a -= Number(document.getElementById("outText").value);                  
+                        break;
+                    case '/':
+                        a /= Number(document.getElementById("outText").value);           
+                        break;
+                    case '*':
+                        a *= Number(document.getElementById("outText").value);                         
+                        break;
+                }
+                document.getElementById("outPut").innerHTML += ' '+document.getElementById("outText").value;
+                document.getElementById("outText").value ="";
+                document.getElementById("outPut").innerHTML+= " "+key;
+            }
+            else
+            {
+                document.getElementById("outPut").innerHTML = "";
+                a = Number(document.getElementById("outText").value);
+                document.getElementById("outPut").innerHTML = ' ' + document.getElementById("outText").value+" "+key;
+                document.getElementById("outText").value = "";
+                sw = true;
+            }
+            n = key;           
+    }
+}
+
+function equal()
+{
+    document.getElementById("outPut").innerHTML +=' '+document.getElementById("outText").value;
+    switch (n)
+    {
+        case '-':
+            b = Number(document.getElementById("outText").value);
+            document.getElementById("outText").value = a - b;
+            a = a - b;
+        break;
+        case '+':
+            b = Number(document.getElementById("outText").value);
+            document.getElementById("outText").value = a + b;
+            a = a + b;
+        break;
+        case '/':
+            b = Number(document.getElementById("outText").value);
+            document.getElementById("outText").value = a / b;
+            a = a * b;
+        break;
+        case '*':
+            b = Number(document.getElementById("outText").value);
+            document.getElementById("outText").value = a * b;
+            a = a * b;     
+        break;          
+    }
+    document.getElementById("outPut").innerHTML +=" ="+ ' '+document.getElementById("outText").value;
+    sw2 = true;
+    sw = false;
+}    
+</script>

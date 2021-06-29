@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign in</title>
     <style>
-        .header{
+    .header{
     background-color: rgb(59, 27, 40);
     width: 80%;
     height: 50px;
@@ -28,9 +28,16 @@
     transition-duration: .5s;
     
 }
+.father{
+    display: flex;
+    justify-content: center;
+}
 .login-form{
     display: flex;
     justify-content: center; 
+    background-color: rgb(28, 148, 132);
+    width: 30%;
+    border-radius:4px;
     
 }    
 a{
@@ -49,15 +56,18 @@ a{
             <li id="contact"><a href="contact.html">ارتبط با ما</a></li>
             <li id="sign-up"><a href="signup.html">ثبت نام</a></li>
             <li id="sign-in"><a href="login.html">ورود به سایت</a></li>
+            <li id="calculator"><a href="calculator.html">ماشین حساب</a></li>
         </ul>
     </div><br><br>
-    <div class="login-form">
-        <form action="repo.php">
-            <input type="text"> :نام کاربری
-            <br><br>
-          <input type="password"> :گذرواژه <br><br>
-          <button type="submit" >Sign in</button>
-        </form>
+    <div class="father">
+        <div class="login-form">
+            <form action="repo.php"><br>
+                <input type="text"> :نام کاربری
+                <br><br>
+              <input type="password"> :گذرواژه <br><br>
+              <button type="submit" >Sign in</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
